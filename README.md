@@ -38,6 +38,20 @@ I developed this project to evaluate the efficacy of Neural Networks in predicti
 * **Correlation Heatmap:** Used to identify that Glucose has the strongest linear relationship with diabetes.
 * **Feature Importance Bar Chart:** Created to show the ranking of medical factors, with Glucose and BMI at the top.
 
+graph TD
+    A[Total Patients: 768] --> B{Outcome}
+    B -->|Non-Diabetic| C[500 Samples (65%)]
+    B -->|Diabetic| D[268 Samples (35%)]
+    
+    style C fill:#f9f,stroke:#333,stroke-width:2px
+    style D fill:#ff9999,stroke:#333,stroke-width:2px
+graph LR
+    In[Input: 8 Medical Features] --> H1((Dense Layer 1: 12 ReLU))
+    H1 --> H2((Dense Layer 2: 8 ReLU))
+    H2 --> Out((Output: 1 Sigmoid))
+    
+    style Out fill:#00ff00,stroke:#333,stroke-width:4px    
+    
 ### Problem Formulation
 
 * **Model:** Sequential Neural Network.
