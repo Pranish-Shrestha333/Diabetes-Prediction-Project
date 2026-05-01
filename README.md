@@ -2,30 +2,32 @@
 
 #Diabetes Prediction using Neural Networks
 
-* **Summary**This project implements a Sequential Neural Network to predict the likelihood of diabetes in patients based on clinical metrics. This study uses the [Pima Indians Diabetes Database](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database) originally from the National Institute of Diabetes and Digestive and Kidney Diseases.
+One Sentence Summary: A deep learning pipeline developed in WSL to predict Type 2 Diabetes risk with 70.78% accuracy using clinical health metrics and median-imputed data.
 
 ## Overview
-* **The Task:** Binary classification of diabetic vs. non-diabetic patients using 8 physiological features.
-* **My Approach:** Built using a WSL-based workflow, I performed data cleaning on medically impossible zero-values (BMI, Blood Pressure) and utilized a 3-layer Neural Network (12-8-1 architecture) with TensorFlow/Keras.
-* **Performance:** Achieved a **71% test accuracy** and an AUC of **0.70**. My analysis confirms that **Glucose** and **BMI** are the most significant medical predictors in this dataset.
+
+I developed this project to evaluate the efficacy of Neural Networks in predicting Type 2 Diabetes using patient health metrics. Rather than focusing solely on model accuracy, I prioritized **data integrity and clinical relevance**. By working in a WSL (Ubuntu) environment, I implemented a custom preprocessing pipeline to address medically impossible data points (such as zero-value BMIs) within the [Pima Indians Diabetes Database](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database). The final model achieved a **70.78% accuracy**, successfully identifying Glucose and BMI as the most significant physiological indicators.
 
 
 ## Summary of Workdone
 
-* **Source:** [Pima Indians Diabetes Database](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database)
-* **Input:** CSV file with 8 medical features (Glucose, Blood Pressure, BMI, Age, etc.).
-* **Output:** Binary label (0 for healthy, 1 for diabetic).
-* **Size:** 768 patient records.
-* **Split:** 80% Training, 20% Testing.
+### 1. Data Engineering & Cleaning
+* **Source:** Utilized the [Pima Indians Diabetes Database](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database) to analyze 768 patient records with 8 clinical features.
+* **Cleaning:** Addressed data quality issues by identifying medically impossible `0` values in features like **BMI, Blood Pressure, and Glucose**. These were handled using **Median Imputation** to maintain dataset integrity without losing valuable samples.
+* **Normalization:** Implemented **StandardScaler** to ensure all features (like Age vs. Insulin) were on the same scale, preventing the Neural Network from being biased toward higher-magnitude variables.
 
+### 2. Neural Network Architecture
+* **Model Type:** Built a **Sequential Deep Learning Model** using TensorFlow/Keras.
+* **Layers:** Designed a 3-layer architecture:
+    * **Input Layer:** 12 neurons with ReLU activation to capture initial feature patterns.
+    * **Hidden Layer:** 8 neurons with ReLU activation for non-linear complexity.
+    * **Output Layer:** 1 neuron with Sigmoid activation for binary classification (0 or 1).
+* **Optimization:** Used the **Adam Optimizer** and **Binary Cross-Entropy** loss function, training for 150 epochs with a batch size of 10.
 
-* Data:
-  * Type: For example
-    * Input: medical images (1000x1000 pixel jpegs), CSV file: image filename -> diagnosis
-    * Input: CSV file of features, output: signal/background flag in 1st column.
-  * Size: How much data?
-  * Instances (Train, Test, Validation Split): how many data points? Ex: 1000 patients for training, 200 for testing, none for validation
-
+### 3. Evaluation & Insights
+* **Results:** Achieved a **70.78% accuracy** on the unseen test set (20% split).
+* **Clinical Relevance:** The model confirmed a high correlation between **Glucose/BMI** and diabetes risk, providing a data-driven justification for traditional medical diagnostic focus areas.
+      
 #### Preprocessing / Clean up
 
 * **Missing Value Imputation:** Medically impossible `0` values in Glucose, Blood Pressure, Skin Thickness, Insulin, and BMI were replaced with the **Median** of their respective columns.
