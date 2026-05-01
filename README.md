@@ -39,6 +39,9 @@ I developed this project to evaluate the efficacy of Neural Networks in predicti
 * **Feature Importance Bar Chart:** Created to show the ranking of medical factors, with Glucose and BMI at the top.
   <img width="841" height="547" alt="image" src="https://github.com/user-attachments/assets/c2ed73fb-213a-4fe1-9606-aca840b22880" />
 
+  <img width="846" height="714" alt="image" src="https://github.com/user-attachments/assets/950789ac-8674-442c-9552-769a2379d227" />
+
+
 
 ### Problem Formulation
 
