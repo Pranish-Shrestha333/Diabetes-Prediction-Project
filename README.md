@@ -2,15 +2,13 @@
 
 # Project Title
 
-* **One Sentence Summary** Ex: This repository holds an attempt to apply LSTMs to Stock Market using data from
-"Get Rich" Kaggle challenge (provide link). 
+* **Summary**This project implements a Sequential Neural Network to predict the likelihood of diabetes in patients based on clinical metrics. This study uses the [Pima Indians Diabetes Database](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database) originally from the National Institute of Diabetes and Digestive and Kidney Diseases.
 
 ## Overview
+* **The Task:** Binary classification of diabetic vs. non-diabetic patients using 8 physiological features.
+* **My Approach:** Built using a WSL-based workflow, I performed data cleaning on medically impossible zero-values (BMI, Blood Pressure) and utilized a 3-layer Neural Network (12-8-1 architecture) with TensorFlow/Keras.
+* **Performance:** Achieved a **71% test accuracy** and an AUC of **0.70**. My analysis confirms that **Glucose** and **BMI** are the most significant medical predictors in this dataset.
 
-* This section could contain a short paragraph which include the following:
-  * **Definition of the tasks / challenge**  Ex: The task, as defined by the Kaggle challenge is to use a time series of 12 features, sampled daily for 1 month, to predict the next day's price of a stock.
-  * **Your approach** Ex: The approach in this repository formulates the problem as regression task, using deep recurrent neural networks as the model with the full time series of features as input. We compared the performance of 3 different network architectures.
-  * **Summary of the performance achieved** Ex: Our best model was able to predict the next day stock price within 23%, 90% of the time. At the time of writing, the best performance on Kaggle of this metric is 18%.
 
 ## Summary of Workdone
 
