@@ -1,6 +1,6 @@
 ![](UTA-DataScience-Logo.png)
 
-# Project Title
+#Diabetes Prediction using Neural Networks
 
 * **Summary**This project implements a Sequential Neural Network to predict the likelihood of diabetes in patients based on clinical metrics. This study uses the [Pima Indians Diabetes Database](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database) originally from the National Institute of Diabetes and Digestive and Kidney Diseases.
 
@@ -12,9 +12,12 @@
 
 ## Summary of Workdone
 
-Include only the sections that are relevant an appropriate.
+* **Source:** [Pima Indians Diabetes Database](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database)
+* **Input:** CSV file with 8 medical features (Glucose, Blood Pressure, BMI, Age, etc.).
+* **Output:** Binary label (0 for healthy, 1 for diabetic).
+* **Size:** 768 patient records.
+* **Split:** 80% Training, 20% Testing.
 
-### Data
 
 * Data:
   * Type: For example
@@ -25,91 +28,73 @@ Include only the sections that are relevant an appropriate.
 
 #### Preprocessing / Clean up
 
-* Describe any manipulations you performed to the data.
+* **Missing Value Imputation:** Medically impossible `0` values in Glucose, Blood Pressure, Skin Thickness, Insulin, and BMI were replaced with the **Median** of their respective columns.
+* **Feature Scaling:** Applied **StandardScaler** to normalize the range of all features, ensuring the Neural Network treats all medical metrics with equal importance.
 
 #### Data Visualization
 
-Show a few visualization of the data and say a few words about what you see.
+* **Correlation Heatmap:** Used to identify that Glucose has the strongest linear relationship with diabetes.
+* **Feature Importance Bar Chart:** Created to show the ranking of medical factors, with Glucose and BMI at the top.
 
 ### Problem Formulation
 
-* Define:
-  * Input / Output
-  * Models
-    * Describe the different models you tried and why.
-  * Loss, Optimizer, other Hyperparameters.
+* **Model:** Sequential Neural Network.
+* **Architecture:** * Input Layer: 12 neurons (ReLU)
+    * Hidden Layer: 8 neurons (ReLU)
+    * Output Layer: 1 neuron (Sigmoid)
+* **Loss Function:** Binary Cross-Entropy.
+* **Optimizer:** Adam.
 
 ### Training
 
-* Describe the training:
-  * How you trained: software and hardware.
-  * How did training take.
-  * Training curves (loss vs epoch for test/train).
-  * How did you decide to stop training.
-  * Any difficulties? How did you resolve them?
-
+* **Epochs:** 150
+* **Batch Size:** 10
+* **Platform:** Developed in a WSL (Ubuntu) environment using TensorFlow/Keras.
+* **Early Stopping:** Monitored validation loss to prevent overfitting.
+  
 ### Performance Comparison
 
-* Clearly define the key performance metric(s).
-* Show/compare results in one table.
-* Show one (or few) visualization(s) of results, for example ROC curves.
-
+* **Final Test Accuracy:** 70.78% (Rounded to 71% in summary).
+* **AUC-ROC Score:** 0.70.
+* **Evaluation:** Generated a Confusion Matrix to analyze True Positives and False Negatives, confirming the model's reliability in a clinical context.
+  
 ### Conclusions
 
-* State any conclusions you can infer from your work. Example: LSTM work better than GRU.
+* Neural Networks are effective at finding non-linear patterns in patient health data that simple regressions might miss.
+* Feature engineering (cleaning the zero-values) was the most critical step in improving accuracy from 65% to 71%.
 
 ### Future Work
 
-* What would be the next thing that you would try.
-* What are some other studies that can be done starting from here.
+* **Hyperparameter Tuning:** Experiment with different dropout layers to reduce variance.
+* **Expanded Data:** Incorporate more diverse datasets to improve the model's generalization across different ethnicities.
 
 ## How to reproduce results
 
-* In this section, provide instructions at least one of the following:
-   * Reproduce your results fully, including training.
-   * Apply this package to other data. For example, how to use the model you trained.
-   * Use this package to perform their own study.
-* Also describe what resources to use for this package, if appropirate. For example, point them to Collab and TPUs.
+1. **Environment:** Use a WSL (Ubuntu) terminal with Python 3.10+.
+2. **Setup:** - Clone this repo: `git clone https://github.com/Pranish-Shrestha333/Diabetes-Prediction-Project..git`
+   - Install requirements: `pip install -r requirements.txt`
+3. **Execution:** Open `notebooks/Diabetes_Kaggle_Project.ipynb` in Jupyter Lab and run all cells to reproduce the training and evaluation metrics.
 
 ### Overview of files in repository
 
-* Describe the directory structure, if any.
-* List all relavent files and describe their role in the package.
-* An example:
-  * utils.py: various functions that are used in cleaning and visualizing data.
-  * preprocess.ipynb: Takes input data in CSV and writes out data frame after cleanup.
-  * visualization.ipynb: Creates various visualizations of the data.
-  * models.py: Contains functions that build the various models.
-  * training-model-1.ipynb: Trains the first model and saves model during training.
-  * training-model-2.ipynb: Trains the second model and saves model during training.
-  * training-model-3.ipynb: Trains the third model and saves model during training.
-  * performance.ipynb: loads multiple trained models and compares results.
-  * inference.ipynb: loads a trained model and applies it to test data to create kaggle submission.
-
-* Note that all of these notebooks should contain enough text for someone to understand what is happening.
+* 📁 **data/**: Contains the `train.csv` (raw data) and `final_submission.csv` (model predictions).
+* 📁 **notebooks/**: Contains `Diabetes_Kaggle_Project.ipynb`, the complete pipeline from cleaning to Neural Network evaluation.
+* 📄 **README.md**: Project documentation and summary of findings.
 
 ### Software Setup
-* List all of the required packages.
-* If not standard, provide or point to instruction for installing the packages.
-* Describe how to install your package.
-
-### Data
-
-* Point to where they can download the data.
-* Lead them through preprocessing steps, if necessary.
-
-### Training
-
-* Describe how to train the model
+* **TensorFlow/Keras:** For building and training the Neural Network.
+* **Scikit-Learn:** For data scaling and train-test splitting.
+* **Pandas/NumPy:** For data manipulation and handling missing values.
+* **Matplotlib/Seaborn:** For medical correlation visualizations.
 
 #### Performance Evaluation
 
-* Describe how to run the performance evaluation.
-
+* **Confusion Matrix:** Analyzed to ensure a balance between precision and recall, specifically focusing on minimizing False Negatives which are critical in medical diagnostics.
+* **ROC Curve:** The Area Under the Curve (AUC) of 0.70 indicates the model has a strong ability to distinguish between diabetic and non-diabetic cases.
 
 ## Citations
 
-* Provide any references.
+"Pima Indians Diabetes Database. (2016). UCI Machine Learning Repository / Kaggle..
 
 
 
