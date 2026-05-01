@@ -59,6 +59,8 @@ I developed this project to evaluate the efficacy of Neural Networks in predicti
 * **Final Test Accuracy:** 70.78% (Rounded to 71% in summary).
 * **AUC-ROC Score:** 0.70.
 * **Evaluation:** Generated a Confusion Matrix to analyze True Positives and False Negatives, confirming the model's reliability in a clinical context.
+  <img width="691" height="547" alt="image" src="https://github.com/user-attachments/assets/748fe23c-6a04-4c81-a375-185b945eec4c" />
+
   
 ### Conclusions
 
