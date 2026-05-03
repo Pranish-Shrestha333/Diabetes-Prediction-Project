@@ -29,11 +29,13 @@ Developed within a **WSL (Ubuntu)** environment, the pipeline addresses the limi
 Understanding the physiological drivers of diabetes was crucial for model design. 
 
 ### **1. Glucose Distribution & Risk**
-![Glucose Density Plot](images/image_5ca0da.png)
+![Glucose Density Plot]<img width="872" height="547" alt="image" src="https://github.com/user-attachments/assets/30045393-9d13-4e38-ae1a-92efc7e810a6" />
+
 The density plot reveals that Glucose is the primary differentiator. Patients with higher glucose levels (Class 1) show a distinct distribution shift, confirming it as the most significant predictor.
 
 ### **2. Feature Correlations**
-![Feature Importance](images/image_5ca0a0.png)
+![Feature Importance]<img width="846" height="714" alt="image" src="https://github.com/user-attachments/assets/d745539a-2761-4103-8b9b-ca597d6e2674" />
+
 Our correlation analysis identified **Glucose, BMI, and Age** as the top three indicators. This insight led to the creation of the `Age_BMI_Interaction` feature, which boosted the model's ability to find complex patterns in high-risk groups.
 
 ---
@@ -56,11 +58,13 @@ Our correlation analysis identified **Glucose, BMI, and Age** as the top three i
 ## 📈 Performance Evaluation
 
 ### **Confusion Matrix Analysis**
-![Confusion Matrix](images/image_5ca079.png)
+![Confusion Matrix]<img width="501" height="393" alt="image" src="https://github.com/user-attachments/assets/1659fa86-c1ab-41de-9b9f-da2b49d7f1bd" />
+
 The model achieved a balanced performance, correctly identifying **43 True Positives**. In a clinical context, we prioritized minimizing **False Negatives** (12) to ensure high-risk patients are not overlooked.
 
 ### **ROC-AUC Results**
-![ROC Curve](images/image_5ca081.png)
+![ROC Curve]<img width="691" height="547" alt="image" src="https://github.com/user-attachments/assets/15c1cd4a-4bbb-4ef4-9fbb-7ff3ccf0c40f" />
+
 The model achieved a final **Test Accuracy of 71%** and an **AUC score of 0.76**. The ROC curve demonstrates a strong "True Positive Rate," significantly outperforming a random baseline and proving the model's predictive reliability.
 
 ---
